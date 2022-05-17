@@ -18,7 +18,7 @@ import { AbstractControl } from "@angular/forms";
         const domainname = emailname.substring(emailname.indexOf("@") +1);
         const cdomainname = domainname.substring(0,domainname.indexOf("."));
         const extensionname=domainname.substring(domainname.indexOf(".") +1);  
-        const forbidden = /^[a-zA-Z0-9_.+-]+@[a-z]+\.[a-z.]+$/.test(emailname);
+        const forbidden = /^[a-z]+[a-zA-Z0-9_.+-]+@[a-z]+\.[a-z.]+$/.test(emailname);
       const receiptantnamev = /[a-zA-Z0-9_.+-]/.test(receiptantname);
       const dlist=[/^gmail$/,/^yahoo$/,/^hotmail$/,/^ritchennai$/,/^elait$/] 
       const domainnamev= dlist.some(name => name.test(cdomainname));

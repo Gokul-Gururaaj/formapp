@@ -1,0 +1,87 @@
+
+<body class="forbody">
+<div class="container glasslook" >
+    
+  
+    <form [formGroup]="blogcreationForm" class="forform" > 
+        <h1 class="forheading">Blog Creator</h1>
+      <!-- Name -->
+        <div class="form-group form-floating">
+        
+        <input  formControlName="name" 
+        type="text" class="form-control" id="floatingInput" placeholder="Enter ur name" pattern="[a-zA-Z ]*" required 
+        [class.is-invalid]="f['name'].invalid && f['name'].touched"/>
+        <label for="floatingInput">Author name</label>
+        
+       
+      <!-- Error msg for Name-->  
+        
+       
+            
+        <small class="text-danger" *ngIf="f['name'].errors?.['required'] && f['name'].touched" >Name is required.</small>
+        
+        <small class="text-danger" *ngIf="f['name'].errors?.['minlength'] && f['name'].touched">Name must have 4 letters.</small>
+        
+        <small class="text-danger"
+        *ngIf="f['name'].errors?.forbiddenName && f['name'].touched">
+        {{f['name'].errors?.forbiddenName.value}} is not accepted as a name </small>
+        
+        <small class="text-danger" *ngIf="f['name'].errors?.['pattern'] && f['name'].touched" >Chars other than alphabets are not allowed.</small>
+
+        
+        </div>
+        <br>
+        <!-- Email -->
+  
+      <div class="form-group form-floating">
+        
+        <input formControlName="email" 
+         type="text" class="form-control" id="floatingInput" placeholder="Enter ur name" (change)="checker()" (keypress)="foremail($event)" required/>
+        <label for="floatingInput">Author email</label>
+   
+       <!--Error msg for email -->
+       <small class="text-danger" 
+       *ngIf="f['email'].errors?.['required'] && f['email'].touched" >Email is required.</small>
+       
+       <!-- <small class="text-danger" *ngIf="f['email'].errors?.['pattern'] && f['email'].touched" >Email is invalid</small> -->
+       <small class="text-danger"
+         *ngIf="f['email'].errors?.forbiddenName && f['email'].touched">
+         Not in format</small>
+     </div> 
+     <br>
+     <!-- Date -->
+
+     <div class="form-group form-floating">
+        
+        
+        <input type="date" class="form-control"id="floatingInput" placeholder="Enter ur name" formControlName="pdate" onkeydown="return false;">
+        <label for="floatingInput">Publishing date</label>
+        <small class="text-danger" *ngIf=" f['pdate'].errors?.['required'] && f['pdate'].touched">
+            Publishing date is requried
+        </small>    
+     </div>
+     <br>
+     <!-- Title -->
+     <div class="form-group form-floating">
+        
+        <input type="text" class="form-control" id="floatingInput" placeholder="Enter ur name" formControlName="btitle">
+        <label for="floatingInput">Blog title</label>
+        <small class="text-danger" *ngIf=" f['btitle'].errors?.['required'] && f['btitle'].touched">
+            Title is required
+        </small> 
+     </div>  
+     <br> 
+     <!-- Content -->
+     <div class="form-group">
+        <label>Blog content</label>
+        <textarea class="form-control" formControlName="bcontent"  rows="7" placeholder="Write your blogs content here"></textarea>
+        
+        <small class="text-danger" *ngIf=" f['bcontent'].errors?.['required'] && f['bcontent'].touched">
+            Content is required
+        </small>
+      </div>
+      <pre></pre>
+      <button type="button" *ngIf="blogcreationForm.valid" (click)="sub()" class="btn btn-success btn-lg">Create blog</button>   
+     </form>
+</div>
+</body>

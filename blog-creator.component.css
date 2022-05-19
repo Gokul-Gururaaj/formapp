@@ -1,0 +1,53 @@
+.container
+{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height:80%;
+ width: 35%; 
+}
+.glasslook
+{
+    background: rgba( 228, 220, 222, 0.35 );
+ box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+ backdrop-filter: blur( 15px );
+ -webkit-backdrop-filter: blur( 15px );
+ border-radius: 10px;
+ border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+body
+{
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+
+
+}
+.forbody
+{
+background-image: url("https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4wHfq?ver=f585");
+}
+.forform
+{
+    width: 60%; 
+}
+.forheading
+{
+text-align: center;
+font-family: sans-serif;
+color: aliceblue;
+background-image:linear-gradient(rgb(31, 30, 30),rgb(126, 123, 123));
+}
+label
+{
+    font-family: sans-serif;  
+    color:black;
+    font-size: large;
+}
+label::after
+{
+    content:"*";
+    color:red;
+}
